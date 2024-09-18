@@ -1,5 +1,3 @@
-import java.sql.Time;
-
 public class NBody {
     public static double readRadius(String filepath){
         In in = new In(filepath);
@@ -43,7 +41,7 @@ public class NBody {
         StdDraw.picture(0,0,starfield);
         /* 画planets */
         for(Planet p: allPlanets){
-            p.drawPlanet();
+            p.draw();
         }
 
         /* 允许doubleBuffering,动画更丝滑流畅. */
@@ -61,7 +59,7 @@ public class NBody {
             /* 先绘制背景，再绘制planets，再show()，再暂停10ms */
             StdDraw.picture(0,0,starfield);
             for(Planet p: allPlanets){
-                p.drawPlanet();
+                p.draw();
             }
             StdDraw.show();
             StdDraw.pause(10);
