@@ -12,7 +12,7 @@
 public class StdDrawDemo {
 	public static String imageToDraw = "advice.png";
 
-	/* Draws three copies of the image in a rectangular pattern. */
+//	/* Draws three copies of the image in a rectangular pattern. */
 	public static void drawThree() {
 		/** Sets up the universe so it goes from 
 		  * -100, -100 up to 100, 100 */
