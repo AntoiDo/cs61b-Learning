@@ -75,14 +75,17 @@ public class LinkedListDeque<T> {
      * @breif     第一个到最后一个打印双端队列中的项目
      * @return    void
      */
-    public void printDeque(){
+    public void printDeque() {
         LinkNode<T> current = sentinelFront.next;
-        do{
-            System.out.println(current.data + " ");
-            current = current.next;
-        }while(current != sentinelRear);
+        while (current != sentinelRear) {  // sentinel marks the end of the deque
+            System.out.print(current.data);  // Print the data
+            if (current != sentinelRear.prev) {  // Check if current is not the last node
+                System.out.print(" ");  // Print space only if it's not the last node
+            }
+            current = current.next;  // Move to the next node
+        }
+        System.out.println();  // For a new line after printing the deque
     }
-
     /**
      * @brief      移除除了sentinel外第一个节点
      * @return     删除节点的item(不存在则返回null)
@@ -148,6 +151,6 @@ public class LinkedListDeque<T> {
         deque.addFirst("Hello");
         deque.addFirst("World");
         deque.addLast("IDK");
-        System.out.println(deque.getRecursive(3));
+        deque.printDeque();
     }
 }
