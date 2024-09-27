@@ -104,13 +104,13 @@ public class LinkedListDeque<T> {
 
     /**
      *
-     * @return
+     * @return       删除节点存放的数值
      */
     public T removeLast(){
         if(size == 0){
             return null;
         }
-        T temp = sentinelRear.prev.next.data;
+        T temp = sentinelRear.prev.data;
         sentinelRear.prev.prev.next = sentinelRear;
         sentinelRear.prev = sentinelRear.prev.prev;
         size --;
@@ -147,10 +147,11 @@ public class LinkedListDeque<T> {
         return getRecursiveHelper(node.next, index - 1);
     }
     public static void main(String[] args){
-        LinkedListDeque<String> deque = new LinkedListDeque<String>();
-        deque.addFirst("Hello");
-        deque.addFirst("World");
-        deque.addLast("IDK");
-        deque.printDeque();
+        LinkedListDeque<Integer> deque = new LinkedListDeque<>();
+        deque.addLast(1);
+        deque.addLast(2);
+        deque.addLast(3);
+        System.out.println(deque.removeLast());
+
     }
 }

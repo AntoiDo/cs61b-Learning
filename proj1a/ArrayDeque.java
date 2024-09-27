@@ -1,6 +1,6 @@
 public class ArrayDeque<T> {
-    T[] array;
-    int size;
+    private T[] array;
+    private int size;
     public ArrayDeque(){
         array = (T[]) new Object[8];
         size = 0;
@@ -58,7 +58,7 @@ public class ArrayDeque<T> {
             return null;
         }
         T temp = array[size - 1];
-        size --;
+        size -- ;
         return temp;
     }
     public T get(int index){
