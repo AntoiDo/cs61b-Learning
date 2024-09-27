@@ -1,7 +1,7 @@
 public class LinkedListDeque<T> {
     /* constructor */
     /* 大概思路:构建双哨兵链表，一个sentinel连接头结点，另外一个指向尾结点，一个节点有prev和next两个指针 */
-    private static class LinkNode<T>{
+    private static class LinkNode<T> {
         private T data;
         private LinkNode<T> next;
         private LinkNode<T> prev;
@@ -25,7 +25,7 @@ public class LinkedListDeque<T> {
     /**
      * @介绍    初始化一个双端列表(只建立一个sentinel)
      */
-    public LinkedListDeque(){
+    public LinkedListDeque() {
         sentinelFront = new LinkNode<>(null, null, null);
         sentinelRear = new LinkNode<>(null, null, null);
         sentinelFront.next = sentinelRear;
@@ -37,7 +37,7 @@ public class LinkedListDeque<T> {
      * @breif          在sentinelFront后面添加一个节点
      * @param item     存放的数值
      */
-    public void addFirst(T item){
+    public void addFirst(T item) {
         LinkNode<T> newNode = new LinkNode<>(item, sentinelFront.next, sentinelFront);
         sentinelFront.next.prev = newNode;
         sentinelFront.next = newNode;
@@ -48,7 +48,7 @@ public class LinkedListDeque<T> {
      * @brief          从sentinelRear前面添加一个节点
      * @param item     存放的数值
      */
-    public void addLast(T item){
+    public void addLast(T item) {
         LinkNode<T> newNode = new LinkNode<>(item, sentinelRear, sentinelRear.prev);
         sentinelRear.prev.next = newNode;
         sentinelRear.prev = newNode;
@@ -59,7 +59,7 @@ public class LinkedListDeque<T> {
      * @brief    队列是否为空
      * @return   (True----isEmpty)  (False----notEmpty)
      */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
@@ -67,7 +67,7 @@ public class LinkedListDeque<T> {
      * @brief     返回队列大小
      * @return    size
      */
-    public int size(){
+    public int size() {
         return size;
     }
 
@@ -90,7 +90,7 @@ public class LinkedListDeque<T> {
      * @brief      移除除了sentinel外第一个节点
      * @return     删除节点的item(不存在则返回null)
      */
-    public T removeFirst(){
+    public T removeFirst() {
         // 如果找不到就返回null
         if(size == 0){
             return null;
@@ -106,7 +106,7 @@ public class LinkedListDeque<T> {
      *
      * @return       删除节点存放的数值
      */
-    public T removeLast(){
+    public T removeLast() {
         if(size == 0){
             return null;
         }
@@ -122,9 +122,9 @@ public class LinkedListDeque<T> {
      * @param index     [0-Length]
      * @return          index项的item
      */
-    public T get(int index){
+    public T get(int index) {
         /* 从0开始，哨兵first */
-        LinkNode<T> current = sentinelFront;
+        LinkNode<T> current = sentinelFront.next;
         while(index -- != 0){
             current = current.next;
         }
@@ -134,24 +134,23 @@ public class LinkedListDeque<T> {
     /**
      * @brief         同get
      */
-    public T getRecursive(int index){
+    public T getRecursive(int index) {
         if(index > size || index < 0){
             return null;
         }
-        return getRecursiveHelper(sentinelFront,index);
+        return getRecursiveHelper(sentinelFront.next,index);
     }
-    private T getRecursiveHelper(LinkNode<T> node , int index){
+    private T getRecursiveHelper(LinkNode<T> node , int index) {
         if(index == 0){
             return node.data;
         }
         return getRecursiveHelper(node.next, index - 1);
     }
-    public static void main(String[] args){
-        LinkedListDeque<Integer> deque = new LinkedListDeque<>();
-        deque.addLast(1);
-        deque.addLast(2);
-        deque.addLast(3);
-        System.out.println(deque.removeLast());
-
-    }
+//    public static void main(String[] args) {
+//        LinkedListDeque<Integer> deque = new LinkedListDeque<>();
+//        deque.addLast(1);
+//
+//        System.out.println(deque.getRecursive(0));
+//
+//    }
 }

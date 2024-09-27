@@ -1,18 +1,21 @@
+//todo:将arrayDeque改造成循环数组(using %)
 public class ArrayDeque<T> {
     private T[] array;
     private int size;
-    public ArrayDeque(){
+    private int front;
+    public ArrayDeque() {
         array = (T[]) new Object[8];
         size = 0;
+        front = 0;
     }
-    public int size(){
+    public int size() {
         return size;
     }
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
-    public void printDeque(){
-        for(int i = 0; i < size; i++){
+    public void printDeque() {
+        for(int i = front; i < size; i++){
             System.out.print(array[i]);
             if(i != size - 1){
                 System.out.print(" ");
@@ -21,14 +24,14 @@ public class ArrayDeque<T> {
             }
         }
     }
-    private void resize(){
-        T[] newArray = (T[])new Object[size * 2];
+    private void resize(int newLen) {
+        T[] newArray = (T[])new Object[newLen];
         System.arraycopy(array, 0, newArray, 0, array.length);
         array = newArray;
     }
-    public void addFirst(T item){
+    public void addFirst(T item) {
         if(size == array.length){
-            resize();
+            resize(size * 2);
         }
         for(int i = size; i > 0; i--){
             array[i] = array[i-1];
@@ -38,7 +41,7 @@ public class ArrayDeque<T> {
     }
     public void addLast(T item){
         if(size == array.length){
-            resize();
+            resize(size * 2);
         }
         array[size++] = item;
     }
