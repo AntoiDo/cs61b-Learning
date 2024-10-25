@@ -1,3 +1,4 @@
+import test.HelloWorld;  // Replace HelloWorldClass with the actual class you want to use
 public class LinkedListDeque<T> implements Deque<T> {
     private static class LinkNode<T> {
         private T data;
@@ -172,5 +173,6 @@ public class LinkedListDeque<T> implements Deque<T> {
         // 删除节点p
         deque.removeNode(ptr);
         deque.printDeque(); // 1 3
+        HelloWorld.main(args) ;
     }
 }

@@ -5,6 +5,8 @@ public class RotatingSLList<Item> extends SLList<Item> {
     }
     public static void main(String[] args) {
         RotatingSLList<Integer> hello = new RotatingSLList<>();
+        RotatingSLList<String> test = (RotatingSLList<String>) new SLList<String>();
+        SLList<String> test2 = new RotatingSLList<>();
         hello.addFirst(1);
         hello.addFirst(2);
         hello.addFirst(3);

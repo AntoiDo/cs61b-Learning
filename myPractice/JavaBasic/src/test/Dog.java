@@ -10,6 +10,7 @@ public class Dog implements Comparable<Dog> {
         }
     }
 
+
     private String name;
     private int size;
 
