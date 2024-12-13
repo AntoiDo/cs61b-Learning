@@ -31,7 +31,8 @@ public class BoringWorldDemo {
 //            }
 //        }
         HexWorld hexWorld = new HexWorld();
-        hexWorld.addHexagon(world, new Position(10, 10), Tileset.WALL, 3);
+        hexWorld.addHexagon(world, new Position(10, 10), Tileset.WALL, 6);
+        hexWorld.addHexagon(world, new Position(20, 10), Tileset.FLOWER, 5);
         // draws the world to the screen
         ter.renderFrame(world);
     }

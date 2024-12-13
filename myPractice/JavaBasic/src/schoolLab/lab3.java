@@ -35,7 +35,8 @@ public class lab3 {
 
     /* Input
     输入第一行为一个数字n (1<n<10000)，表示接下来一共有n个备选数字，int范围，以回车分隔，且不会重复。
-    然后接下来是为一个数字m  (1<m<5000)，表示接下来有m个同学所选的数字，int范围内，以回车分隔，你需要输出的是这个同学的数字是否在上述的备选数字中。 */
+    然后接下来是为一个数字m  (1<m<5000)，表示接下来有m个同学所选的数字，int范围内，以回车分隔，你需要输出的是这个同学的数字是否在上述的备选数字中
+     */
     public static void findTheWinner() {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -206,6 +207,7 @@ public class lab3 {
             }
         }
     }
+
 
     public static void main(String[] args) {
         // findTheWinner();

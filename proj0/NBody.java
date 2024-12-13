@@ -7,7 +7,11 @@ public class NBody {
 
     public static Planet[] readPlanets(String filepath){
         In in = new In(filepath);
-        int planetCnt = in.readInt();
+        int planetCnt = i
+            double m = in.readDouble();
+            String imgName = in.readString();
+            allPlanets[i] = new Planet(xPos, yPos, xVel, yVel, m, imgName);
+        }n.readInt();
         Planet[] allPlanets = new Planet[planetCnt];
         double radius = in.readDouble();
         for(int i = 0; i < planetCnt; i++){
@@ -15,10 +19,6 @@ public class NBody {
             double yPos = in.readDouble();
             double xVel = in.readDouble();
             double yVel = in.readDouble();
-            double m = in.readDouble();
-            String imgName = in.readString();
-            allPlanets[i] = new Planet(xPos, yPos, xVel, yVel, m, imgName);
-        }
         return allPlanets;
     }
 
